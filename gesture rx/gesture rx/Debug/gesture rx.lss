@@ -1,0 +1,813 @@
+
+gesture rx.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000003ec  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         000006cc  00000000  00000000  00000440  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      00000085  00000000  00000000  00000b0c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_aranges 00000080  00000000  00000000  00000b98  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   0000087c  00000000  00000000  00000c18  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000221  00000000  00000000  00001494  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   0000044d  00000000  00000000  000016b5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  000001d4  00000000  00000000  00001b04  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000002a9  00000000  00000000  00001cd8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000607  00000000  00000000  00001f81  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	ec ee       	ldi	r30, 0xEC	; 236
+  7c:	f3 e0       	ldi	r31, 0x03	; 3
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a0 30       	cpi	r26, 0x00	; 0
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	11 e0       	ldi	r17, 0x01	; 1
+  8c:	a0 e0       	ldi	r26, 0x00	; 0
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a0 30       	cpi	r26, 0x00	; 0
+  96:	b1 07       	cpc	r27, r17
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 44 01 	call	0x288	; 0x288 <main>
+  9e:	0c 94 f4 01 	jmp	0x3e8	; 0x3e8 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <MOTOR_Forward>:
+	TCCR0B = (1 << CS00) | (1 << CS02); //prescale 1024
+}
+
+void MOTOR_Forward(uint8_t left_speed,uint8_t right_speed)
+{
+	L293D_PORT |= (1 << L293D_L1) | (1 << L293D_R1);
+  a6:	9b b1       	in	r25, 0x0b	; 11
+  a8:	94 61       	ori	r25, 0x14	; 20
+  aa:	9b b9       	out	0x0b, r25	; 11
+	L293D_PORT &= ~((1 << L293D_L2) | (1 << L293D_R2));
+  ac:	9b b1       	in	r25, 0x0b	; 11
+  ae:	97 77       	andi	r25, 0x77	; 119
+  b0:	9b b9       	out	0x0b, r25	; 11
+	L_SPEED = left_speed;
+  b2:	88 bd       	out	0x28, r24	; 40
+	R_SPEED = right_speed;
+  b4:	67 bd       	out	0x27, r22	; 39
+}
+  b6:	08 95       	ret
+
+000000b8 <MOTOR_Backward>:
+
+void MOTOR_Backward(uint8_t left_speed,uint8_t right_speed)
+{
+	L293D_PORT |= (1 << L293D_L2) | (1 << L293D_R2);
+  b8:	9b b1       	in	r25, 0x0b	; 11
+  ba:	98 68       	ori	r25, 0x88	; 136
+  bc:	9b b9       	out	0x0b, r25	; 11
+	L293D_PORT &= ~((1 << L293D_L1) | (1 << L293D_R1));
+  be:	9b b1       	in	r25, 0x0b	; 11
+  c0:	9b 7e       	andi	r25, 0xEB	; 235
+  c2:	9b b9       	out	0x0b, r25	; 11
+	L_SPEED = left_speed;
+  c4:	88 bd       	out	0x28, r24	; 40
+	R_SPEED = right_speed;
+  c6:	67 bd       	out	0x27, r22	; 39
+}
+  c8:	08 95       	ret
+
+000000ca <MOTOR_HardLeft>:
+
+void MOTOR_HardLeft(uint8_t left_speed,uint8_t right_speed)
+{
+	L293D_PORT |= (1 << L293D_L2) | (1 << L293D_R1);
+  ca:	9b b1       	in	r25, 0x0b	; 11
+  cc:	98 61       	ori	r25, 0x18	; 24
+  ce:	9b b9       	out	0x0b, r25	; 11
+	L293D_PORT &= ~((1 << L293D_L1) | (1 << L293D_R2));
+  d0:	9b b1       	in	r25, 0x0b	; 11
+  d2:	9b 77       	andi	r25, 0x7B	; 123
+  d4:	9b b9       	out	0x0b, r25	; 11
+	L_SPEED = left_speed;
+  d6:	88 bd       	out	0x28, r24	; 40
+	R_SPEED = right_speed;
+  d8:	67 bd       	out	0x27, r22	; 39
+}
+  da:	08 95       	ret
+
+000000dc <MOTOR_HardRight>:
+
+void MOTOR_HardRight(uint8_t left_speed,uint8_t right_speed)
+{
+	L293D_PORT |= (1 << L293D_L1) | (1 << L293D_R2);
+  dc:	9b b1       	in	r25, 0x0b	; 11
+  de:	94 68       	ori	r25, 0x84	; 132
+  e0:	9b b9       	out	0x0b, r25	; 11
+	L293D_PORT &= ~((1 << L293D_L2) | (1 << L293D_R1));	
+  e2:	9b b1       	in	r25, 0x0b	; 11
+  e4:	97 7e       	andi	r25, 0xE7	; 231
+  e6:	9b b9       	out	0x0b, r25	; 11
+	L_SPEED = left_speed;
+  e8:	88 bd       	out	0x28, r24	; 40
+	R_SPEED = right_speed;
+  ea:	67 bd       	out	0x27, r22	; 39
+}
+  ec:	08 95       	ret
+
+000000ee <MOTOR_SoftFrontRight>:
+
+void MOTOR_SoftFrontRight(uint8_t left_speed)
+{
+	L293D_PORT |= (1 << L293D_L1);
+  ee:	5a 9a       	sbi	0x0b, 2	; 11
+	L293D_PORT &= ~((1 << L293D_L2) | (1 << L293D_R1) | (1 << L293D_R2));
+  f0:	9b b1       	in	r25, 0x0b	; 11
+  f2:	97 76       	andi	r25, 0x67	; 103
+  f4:	9b b9       	out	0x0b, r25	; 11
+	L_SPEED = left_speed;
+  f6:	88 bd       	out	0x28, r24	; 40
+}
+  f8:	08 95       	ret
+
+000000fa <MOTOR_SoftFrontLeft>:
+
+void MOTOR_SoftFrontLeft(uint8_t right_speed)
+{
+	L293D_PORT |= (1 << L293D_R1);
+  fa:	5c 9a       	sbi	0x0b, 4	; 11
+	L293D_PORT &= ~((1 << L293D_L1) | (1 << L293D_L2) | (1 << L293D_R2));
+  fc:	9b b1       	in	r25, 0x0b	; 11
+  fe:	93 77       	andi	r25, 0x73	; 115
+ 100:	9b b9       	out	0x0b, r25	; 11
+	R_SPEED = right_speed;
+ 102:	87 bd       	out	0x27, r24	; 39
+}
+ 104:	08 95       	ret
+
+00000106 <MOTOR_SoftBackRight>:
+
+void MOTOR_SoftBackRight(uint8_t right_speed)
+{
+	L293D_PORT |= (1 << L293D_R2);
+ 106:	5f 9a       	sbi	0x0b, 7	; 11
+	L293D_PORT &= ~((1 << L293D_R1) | (1 << L293D_L1) | (1 << L293D_L2));
+ 108:	9b b1       	in	r25, 0x0b	; 11
+ 10a:	93 7e       	andi	r25, 0xE3	; 227
+ 10c:	9b b9       	out	0x0b, r25	; 11
+	R_SPEED = right_speed;
+ 10e:	87 bd       	out	0x27, r24	; 39
+}
+ 110:	08 95       	ret
+
+00000112 <MOTOR_SoftBackLeft>:
+
+void MOTOR_SoftBackLeft(uint8_t left_speed)
+{
+	L293D_PORT |= (1 << L293D_L2);
+ 112:	5b 9a       	sbi	0x0b, 3	; 11
+	L293D_PORT &= ~((1 << L293D_L1) | (1 << L293D_R1) | (1 << L293D_R2));
+ 114:	9b b1       	in	r25, 0x0b	; 11
+ 116:	9b 76       	andi	r25, 0x6B	; 107
+ 118:	9b b9       	out	0x0b, r25	; 11
+	L_SPEED = left_speed;
+ 11a:	88 bd       	out	0x28, r24	; 40
+}
+ 11c:	08 95       	ret
+
+0000011e <MOTOR_Stop>:
+
+void MOTOR_Stop(void)
+{
+	L293D_PORT &= ~((1 << L293D_L1) | (1 << L293D_R1) | (1 << L293D_L2) | (1 << L293D_R2));
+ 11e:	8b b1       	in	r24, 0x0b	; 11
+ 120:	83 76       	andi	r24, 0x63	; 99
+ 122:	8b b9       	out	0x0b, r24	; 11
+	
+ 124:	08 95       	ret
+
+00000126 <SPI_Initialize>:
+
+#include "spi.h"
+
+void SPI_Initialize()
+{
+	SPI_DDR |= (1 << SS) | (1 << MOSI) | (1 << SCK);
+ 126:	84 b1       	in	r24, 0x04	; 4
+ 128:	8c 62       	ori	r24, 0x2C	; 44
+ 12a:	84 b9       	out	0x04, r24	; 4
+	SPCR = (1 << SPE) | (1 << MSTR);	
+ 12c:	80 e5       	ldi	r24, 0x50	; 80
+ 12e:	8c bd       	out	0x2c, r24	; 44
+	SPSR = (1 << SPI2X); // F = FOS/2
+ 130:	81 e0       	ldi	r24, 0x01	; 1
+ 132:	8d bd       	out	0x2d, r24	; 45
+	SPI_PORT |= (1 << SS);	
+ 134:	2a 9a       	sbi	0x05, 2	; 5
+}
+ 136:	08 95       	ret
+
+00000138 <SPI_Transciever>:
+
+uint8_t SPI_Transciever(uint8_t data)
+{   
+	SPDR = data;
+ 138:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1 << SPIF)));
+ 13a:	0d b4       	in	r0, 0x2d	; 45
+ 13c:	07 fe       	sbrs	r0, 7
+ 13e:	fd cf       	rjmp	.-6      	; 0x13a <SPI_Transciever+0x2>
+	return SPDR;
+ 140:	8e b5       	in	r24, 0x2e	; 46
+}
+ 142:	08 95       	ret
+
+00000144 <SPI_CsClear>:
+
+void SPI_CsClear()
+{
+	SPI_PORT &= ~(1 << SS);
+ 144:	2a 98       	cbi	0x05, 2	; 5
+}
+ 146:	08 95       	ret
+
+00000148 <SPI_CsSet>:
+
+void SPI_CsSet()
+{
+	SPI_PORT |= (1 << SS);
+ 148:	2a 9a       	sbi	0x05, 2	; 5
+}
+ 14a:	08 95       	ret
+
+0000014c <NRF24_WriteByte>:
+	NRF24_WriteByte(0x04,0x13);
+	NRF24_WriteByte(0x11,0x0c); //12 bytes
+}
+
+void NRF24_WriteByte(uint8_t address,uint8_t data)
+{	
+ 14c:	cf 93       	push	r28
+ 14e:	df 93       	push	r29
+ 150:	d8 2f       	mov	r29, r24
+ 152:	c6 2f       	mov	r28, r22
+	SPI_CsClear();
+ 154:	0e 94 a2 00 	call	0x144	; 0x144 <SPI_CsClear>
+	SPI_Transciever(0x20 | address);
+ 158:	8d 2f       	mov	r24, r29
+ 15a:	80 62       	ori	r24, 0x20	; 32
+ 15c:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+	SPI_Transciever(data);	
+ 160:	8c 2f       	mov	r24, r28
+ 162:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+	SPI_CsSet();
+ 166:	0e 94 a4 00 	call	0x148	; 0x148 <SPI_CsSet>
+}
+ 16a:	df 91       	pop	r29
+ 16c:	cf 91       	pop	r28
+ 16e:	08 95       	ret
+
+00000170 <NRF24_ReadByte>:
+
+uint8_t NRF24_ReadByte(uint8_t address)
+{
+ 170:	cf 93       	push	r28
+ 172:	c8 2f       	mov	r28, r24
+	uint8_t data;
+	SPI_CsClear();
+ 174:	0e 94 a2 00 	call	0x144	; 0x144 <SPI_CsClear>
+	SPI_Transciever(address);
+ 178:	8c 2f       	mov	r24, r28
+ 17a:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+	data = SPI_Transciever(0);
+ 17e:	80 e0       	ldi	r24, 0x00	; 0
+ 180:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+ 184:	c8 2f       	mov	r28, r24
+	SPI_CsSet();
+ 186:	0e 94 a4 00 	call	0x148	; 0x148 <SPI_CsSet>
+	return data;
+}
+ 18a:	8c 2f       	mov	r24, r28
+ 18c:	cf 91       	pop	r28
+ 18e:	08 95       	ret
+
+00000190 <NRF24_WriteByteS>:
+
+void NRF24_WriteByteS(uint8_t address,uint8_t *arr,uint8_t size)
+{
+ 190:	0f 93       	push	r16
+ 192:	1f 93       	push	r17
+ 194:	cf 93       	push	r28
+ 196:	df 93       	push	r29
+ 198:	08 2f       	mov	r16, r24
+ 19a:	eb 01       	movw	r28, r22
+ 19c:	14 2f       	mov	r17, r20
+	SPI_CsClear();
+ 19e:	0e 94 a2 00 	call	0x144	; 0x144 <SPI_CsClear>
+	SPI_Transciever(0x20 | address);
+ 1a2:	80 2f       	mov	r24, r16
+ 1a4:	80 62       	ori	r24, 0x20	; 32
+ 1a6:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+	do 
+	{
+		SPI_Transciever(*(arr++));
+ 1aa:	89 91       	ld	r24, Y+
+ 1ac:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+		
+	} while (--size);
+ 1b0:	11 50       	subi	r17, 0x01	; 1
+ 1b2:	d9 f7       	brne	.-10     	; 0x1aa <NRF24_WriteByteS+0x1a>
+	SPI_CsSet();
+ 1b4:	0e 94 a4 00 	call	0x148	; 0x148 <SPI_CsSet>
+}
+ 1b8:	df 91       	pop	r29
+ 1ba:	cf 91       	pop	r28
+ 1bc:	1f 91       	pop	r17
+ 1be:	0f 91       	pop	r16
+ 1c0:	08 95       	ret
+
+000001c2 <NRF24_ReadByteS>:
+
+void NRF24_ReadByteS(uint8_t address,uint8_t *arr,uint8_t size)
+{
+ 1c2:	0f 93       	push	r16
+ 1c4:	1f 93       	push	r17
+ 1c6:	cf 93       	push	r28
+ 1c8:	df 93       	push	r29
+ 1ca:	08 2f       	mov	r16, r24
+ 1cc:	eb 01       	movw	r28, r22
+ 1ce:	14 2f       	mov	r17, r20
+	SPI_CsClear();
+ 1d0:	0e 94 a2 00 	call	0x144	; 0x144 <SPI_CsClear>
+	SPI_Transciever(address);
+ 1d4:	80 2f       	mov	r24, r16
+ 1d6:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+	do
+	{
+		*(arr++) =	SPI_Transciever(0);
+ 1da:	80 e0       	ldi	r24, 0x00	; 0
+ 1dc:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+ 1e0:	89 93       	st	Y+, r24
+		
+	} while (--size);
+ 1e2:	11 50       	subi	r17, 0x01	; 1
+ 1e4:	d1 f7       	brne	.-12     	; 0x1da <NRF24_ReadByteS+0x18>
+	SPI_CsSet();
+ 1e6:	0e 94 a4 00 	call	0x148	; 0x148 <SPI_CsSet>
+}
+ 1ea:	df 91       	pop	r29
+ 1ec:	cf 91       	pop	r28
+ 1ee:	1f 91       	pop	r17
+ 1f0:	0f 91       	pop	r16
+ 1f2:	08 95       	ret
+
+000001f4 <NRF24_WriteTxFifo>:
+
+void NRF24_WriteTxFifo(uint8_t *arr,uint8_t size)
+{
+ 1f4:	1f 93       	push	r17
+ 1f6:	cf 93       	push	r28
+ 1f8:	df 93       	push	r29
+ 1fa:	ec 01       	movw	r28, r24
+ 1fc:	16 2f       	mov	r17, r22
+	uint8_t status;
+	
+	SPI_CsClear();
+ 1fe:	0e 94 a2 00 	call	0x144	; 0x144 <SPI_CsClear>
+	SPI_Transciever(W_TX_PAYLOAD);
+ 202:	80 ea       	ldi	r24, 0xA0	; 160
+ 204:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+	do
+	{
+		SPI_Transciever(*(arr++));
+ 208:	89 91       	ld	r24, Y+
+ 20a:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+		
+	} while (--size);
+ 20e:	11 50       	subi	r17, 0x01	; 1
+ 210:	d9 f7       	brne	.-10     	; 0x208 <NRF24_WriteTxFifo+0x14>
+	SPI_CsSet();
+ 212:	0e 94 a4 00 	call	0x148	; 0x148 <SPI_CsSet>
+	
+	do
+	{
+		SPI_CsClear();
+ 216:	0e 94 a2 00 	call	0x144	; 0x144 <SPI_CsClear>
+		status = SPI_Transciever(NOP);
+ 21a:	8f ef       	ldi	r24, 0xFF	; 255
+ 21c:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+ 220:	c8 2f       	mov	r28, r24
+		SPI_CsSet();
+ 222:	0e 94 a4 00 	call	0x148	; 0x148 <SPI_CsSet>
+		
+	} while (!(status & (1 << TX_DS)));
+ 226:	c5 ff       	sbrs	r28, 5
+ 228:	f6 cf       	rjmp	.-20     	; 0x216 <NRF24_WriteTxFifo+0x22>
+	
+	
+	//status &= ~(1 << RX_DR);
+	NRF24_WriteByte(STATUS,status);
+ 22a:	87 e0       	ldi	r24, 0x07	; 7
+ 22c:	6c 2f       	mov	r22, r28
+ 22e:	0e 94 a6 00 	call	0x14c	; 0x14c <NRF24_WriteByte>
+}
+ 232:	df 91       	pop	r29
+ 234:	cf 91       	pop	r28
+ 236:	1f 91       	pop	r17
+ 238:	08 95       	ret
+
+0000023a <NRF24_ReadRxFifo>:
+
+void NRF24_ReadRxFifo(uint8_t *arr,uint8_t size)
+{
+ 23a:	0f 93       	push	r16
+ 23c:	1f 93       	push	r17
+ 23e:	cf 93       	push	r28
+ 240:	df 93       	push	r29
+ 242:	ec 01       	movw	r28, r24
+ 244:	16 2f       	mov	r17, r22
+	uint8_t status;
+	
+	do
+	{
+		SPI_CsClear();
+ 246:	0e 94 a2 00 	call	0x144	; 0x144 <SPI_CsClear>
+		status = SPI_Transciever(NOP);
+ 24a:	8f ef       	ldi	r24, 0xFF	; 255
+ 24c:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+ 250:	08 2f       	mov	r16, r24
+		SPI_CsSet();
+ 252:	0e 94 a4 00 	call	0x148	; 0x148 <SPI_CsSet>
+		
+	} while (!(status & (1 << RX_DR)));
+ 256:	06 ff       	sbrs	r16, 6
+ 258:	f6 cf       	rjmp	.-20     	; 0x246 <NRF24_ReadRxFifo+0xc>
+	
+	SPI_CsClear();
+ 25a:	0e 94 a2 00 	call	0x144	; 0x144 <SPI_CsClear>
+	SPI_Transciever(R_RX_PAYLOAD);
+ 25e:	81 e6       	ldi	r24, 0x61	; 97
+ 260:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+	do
+	{
+		*(arr++) = SPI_Transciever(0);
+ 264:	80 e0       	ldi	r24, 0x00	; 0
+ 266:	0e 94 9c 00 	call	0x138	; 0x138 <SPI_Transciever>
+ 26a:	89 93       	st	Y+, r24
+		
+	} while (--size);
+ 26c:	11 50       	subi	r17, 0x01	; 1
+ 26e:	d1 f7       	brne	.-12     	; 0x264 <NRF24_ReadRxFifo+0x2a>
+	SPI_CsSet();
+ 270:	0e 94 a4 00 	call	0x148	; 0x148 <SPI_CsSet>
+	
+	//status &= ~(1 << RX_DR);
+	NRF24_WriteByte(STATUS,status);
+ 274:	87 e0       	ldi	r24, 0x07	; 7
+ 276:	60 2f       	mov	r22, r16
+ 278:	0e 94 a6 00 	call	0x14c	; 0x14c <NRF24_WriteByte>
+}
+ 27c:	df 91       	pop	r29
+ 27e:	cf 91       	pop	r28
+ 280:	1f 91       	pop	r17
+ 282:	0f 91       	pop	r16
+ 284:	08 95       	ret
+
+00000286 <NRF24_WriteAckPayload>:
+
+void NRF24_WriteAckPayload(uint8_t *arr,uint8_t size)
+{
+	
+}
+ 286:	08 95       	ret
+
+00000288 <main>:
+#include <util/delay.h>
+#include "motor driver.c"
+#include "nrf24.c"
+
+int main(void)
+{
+ 288:	cf 93       	push	r28
+ 28a:	df 93       	push	r29
+ 28c:	cd b7       	in	r28, 0x3d	; 61
+ 28e:	de b7       	in	r29, 0x3e	; 62
+ 290:	2c 97       	sbiw	r28, 0x0c	; 12
+ 292:	0f b6       	in	r0, 0x3f	; 63
+ 294:	f8 94       	cli
+ 296:	de bf       	out	0x3e, r29	; 62
+ 298:	0f be       	out	0x3f, r0	; 63
+ 29a:	cd bf       	out	0x3d, r28	; 61
+#include "motor driver.h"
+
+inline void MOTOR_Initialize()
+{
+	L293D_DDR |= (1 << L293D_EN_L12) | (1 << L293D_EN_R12) | (1 << L293D_L1) | (1 << L293D_L2) | (1 << L293D_R1) | (1 << L293D_R2);
+ 29c:	8a b1       	in	r24, 0x0a	; 10
+ 29e:	8c 6f       	ori	r24, 0xFC	; 252
+ 2a0:	8a b9       	out	0x0a, r24	; 10
+	TCCR0A = (1 << COM0A1) | (1 << COM0B1) | (1 << WGM00) ; //phase corrected pwm 
+ 2a2:	81 ea       	ldi	r24, 0xA1	; 161
+ 2a4:	84 bd       	out	0x24, r24	; 36
+	TCCR0B = (1 << CS00) | (1 << CS02); //prescale 1024
+ 2a6:	85 e0       	ldi	r24, 0x05	; 5
+ 2a8:	85 bd       	out	0x25, r24	; 37
+#include "nrf24.h"
+
+inline void NRF24_Initialize(void)
+{
+	SPI_Initialize();
+ 2aa:	0e 94 93 00 	call	0x126	; 0x126 <SPI_Initialize>
+	NRF24_WriteByte(0x00,0x78);//pw =1
+ 2ae:	80 e0       	ldi	r24, 0x00	; 0
+ 2b0:	68 e7       	ldi	r22, 0x78	; 120
+ 2b2:	0e 94 a6 00 	call	0x14c	; 0x14c <NRF24_WriteByte>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2b6:	8f e3       	ldi	r24, 0x3F	; 63
+ 2b8:	9f e1       	ldi	r25, 0x1F	; 31
+ 2ba:	01 97       	sbiw	r24, 0x01	; 1
+ 2bc:	f1 f7       	brne	.-4      	; 0x2ba <main+0x32>
+ 2be:	00 c0       	rjmp	.+0      	; 0x2c0 <main+0x38>
+ 2c0:	00 00       	nop
+	_delay_ms(2);
+	CE_PORT |= (1 << CE);
+ 2c2:	29 9a       	sbi	0x05, 1	; 5
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2c4:	95 e3       	ldi	r25, 0x35	; 53
+ 2c6:	9a 95       	dec	r25
+ 2c8:	f1 f7       	brne	.-4      	; 0x2c6 <main+0x3e>
+ 2ca:	00 00       	nop
+	_delay_us(10);
+	NRF24_WriteByte(0x00,0x7b); //mask int pw = 1 and rx mode
+ 2cc:	80 e0       	ldi	r24, 0x00	; 0
+ 2ce:	6b e7       	ldi	r22, 0x7B	; 123
+ 2d0:	0e 94 a6 00 	call	0x14c	; 0x14c <NRF24_WriteByte>
+	NRF24_WriteByte(0x01,0x00); //AA off
+ 2d4:	81 e0       	ldi	r24, 0x01	; 1
+ 2d6:	60 e0       	ldi	r22, 0x00	; 0
+ 2d8:	0e 94 a6 00 	call	0x14c	; 0x14c <NRF24_WriteByte>
+	NRF24_WriteByte(0x02,0x01);
+ 2dc:	82 e0       	ldi	r24, 0x02	; 2
+ 2de:	61 e0       	ldi	r22, 0x01	; 1
+ 2e0:	0e 94 a6 00 	call	0x14c	; 0x14c <NRF24_WriteByte>
+	NRF24_WriteByte(0x04,0x13);
+ 2e4:	84 e0       	ldi	r24, 0x04	; 4
+ 2e6:	63 e1       	ldi	r22, 0x13	; 19
+ 2e8:	0e 94 a6 00 	call	0x14c	; 0x14c <NRF24_WriteByte>
+	NRF24_WriteByte(0x11,0x0c); //12 bytes
+ 2ec:	81 e1       	ldi	r24, 0x11	; 17
+ 2ee:	6c e0       	ldi	r22, 0x0C	; 12
+ 2f0:	0e 94 a6 00 	call	0x14c	; 0x14c <NRF24_WriteByte>
+
+	
+		
+    while(1)
+    {
+		NRF24_ReadRxFifo(MPU6050_data,12);
+ 2f4:	ce 01       	movw	r24, r28
+ 2f6:	01 96       	adiw	r24, 0x01	; 1
+ 2f8:	6c e0       	ldi	r22, 0x0C	; 12
+ 2fa:	0e 94 1d 01 	call	0x23a	; 0x23a <NRF24_ReadRxFifo>
+		acx = (MPU6050_data[0] << 8) | (MPU6050_data[1]);
+ 2fe:	f9 80       	ldd	r15, Y+1	; 0x01
+ 300:	ee 24       	eor	r14, r14
+ 302:	8a 81       	ldd	r24, Y+2	; 0x02
+ 304:	90 e0       	ldi	r25, 0x00	; 0
+ 306:	8e 29       	or	r24, r14
+ 308:	9f 29       	or	r25, r15
+		acy = (MPU6050_data[2] << 8) | (MPU6050_data[3]);
+ 30a:	1b 81       	ldd	r17, Y+3	; 0x03
+ 30c:	00 e0       	ldi	r16, 0x00	; 0
+ 30e:	2c 81       	ldd	r18, Y+4	; 0x04
+ 310:	30 e0       	ldi	r19, 0x00	; 0
+ 312:	20 2b       	or	r18, r16
+ 314:	31 2b       	or	r19, r17
+		acz = (MPU6050_data[4] << 8) | (MPU6050_data[5]);
+		
+		if (acx & 0x8000)
+ 316:	99 23       	and	r25, r25
+ 318:	9c f5       	brge	.+102    	; 0x380 <main+0xf8>
+		{
+			acx = ~acx + 1;
+ 31a:	90 95       	com	r25
+ 31c:	81 95       	neg	r24
+ 31e:	9f 4f       	sbci	r25, 0xFF	; 255
+			acx = acx >> 7;
+ 320:	88 0f       	add	r24, r24
+ 322:	89 2f       	mov	r24, r25
+ 324:	88 1f       	adc	r24, r24
+ 326:	99 0b       	sbc	r25, r25
+ 328:	91 95       	neg	r25
+			
+			if (acy & 0x8000)
+ 32a:	33 23       	and	r19, r19
+ 32c:	bc f4       	brge	.+46     	; 0x35c <main+0xd4>
+			{
+				acy = ~acy + 1;
+ 32e:	30 95       	com	r19
+ 330:	21 95       	neg	r18
+ 332:	3f 4f       	sbci	r19, 0xFF	; 255
+				acy = acy >> 7;
+ 334:	22 0f       	add	r18, r18
+ 336:	23 2f       	mov	r18, r19
+ 338:	22 1f       	adc	r18, r18
+ 33a:	33 0b       	sbc	r19, r19
+ 33c:	31 95       	neg	r19
+				if (acx <= acy)
+ 33e:	28 17       	cp	r18, r24
+ 340:	39 07       	cpc	r19, r25
+ 342:	30 f0       	brcs	.+12     	; 0x350 <main+0xc8>
+				{
+					MOTOR_Forward(0,acx  + 9);
+ 344:	68 2f       	mov	r22, r24
+ 346:	67 5f       	subi	r22, 0xF7	; 247
+ 348:	80 e0       	ldi	r24, 0x00	; 0
+ 34a:	0e 94 53 00 	call	0xa6	; 0xa6 <MOTOR_Forward>
+ 34e:	d2 cf       	rjmp	.-92     	; 0x2f4 <main+0x6c>
+				}
+				else
+				{
+					MOTOR_Forward(acx - acy,acx  + 9);
+ 350:	68 2f       	mov	r22, r24
+ 352:	67 5f       	subi	r22, 0xF7	; 247
+ 354:	82 1b       	sub	r24, r18
+ 356:	0e 94 53 00 	call	0xa6	; 0xa6 <MOTOR_Forward>
+ 35a:	cc cf       	rjmp	.-104    	; 0x2f4 <main+0x6c>
+				}
+			}
+			else
+			{
+				acy = acy >> 7;
+ 35c:	22 0f       	add	r18, r18
+ 35e:	23 2f       	mov	r18, r19
+ 360:	22 1f       	adc	r18, r18
+ 362:	33 0b       	sbc	r19, r19
+ 364:	31 95       	neg	r19
+				if (acx <= acy)
+ 366:	28 17       	cp	r18, r24
+ 368:	39 07       	cpc	r19, r25
+ 36a:	20 f0       	brcs	.+8      	; 0x374 <main+0xec>
+				{
+					MOTOR_Forward(acx,9);
+ 36c:	69 e0       	ldi	r22, 0x09	; 9
+ 36e:	0e 94 53 00 	call	0xa6	; 0xa6 <MOTOR_Forward>
+ 372:	c0 cf       	rjmp	.-128    	; 0x2f4 <main+0x6c>
+				}
+				else
+				{
+					MOTOR_Forward(acx,acx - acy + 9);
+ 374:	68 2f       	mov	r22, r24
+ 376:	62 1b       	sub	r22, r18
+ 378:	67 5f       	subi	r22, 0xF7	; 247
+ 37a:	0e 94 53 00 	call	0xa6	; 0xa6 <MOTOR_Forward>
+ 37e:	ba cf       	rjmp	.-140    	; 0x2f4 <main+0x6c>
+			
+		}
+		
+		else
+		{
+			acx = acx >> 7;
+ 380:	88 0f       	add	r24, r24
+ 382:	89 2f       	mov	r24, r25
+ 384:	88 1f       	adc	r24, r24
+ 386:	99 0b       	sbc	r25, r25
+ 388:	91 95       	neg	r25
+			if (acy & 0x8000)
+ 38a:	33 23       	and	r19, r19
+ 38c:	cc f4       	brge	.+50     	; 0x3c0 <main+0x138>
+			{
+				acy = ~acy + 1;
+ 38e:	30 95       	com	r19
+ 390:	21 95       	neg	r18
+ 392:	3f 4f       	sbci	r19, 0xFF	; 255
+				acy = acy >> 6;
+ 394:	00 24       	eor	r0, r0
+ 396:	22 0f       	add	r18, r18
+ 398:	33 1f       	adc	r19, r19
+ 39a:	00 1c       	adc	r0, r0
+ 39c:	22 0f       	add	r18, r18
+ 39e:	33 1f       	adc	r19, r19
+ 3a0:	00 1c       	adc	r0, r0
+ 3a2:	23 2f       	mov	r18, r19
+ 3a4:	30 2d       	mov	r19, r0
+				if (acx <= acy)
+ 3a6:	28 17       	cp	r18, r24
+ 3a8:	39 07       	cpc	r19, r25
+ 3aa:	20 f0       	brcs	.+8      	; 0x3b4 <main+0x12c>
+				{
+					MOTOR_Backward(acx,9);
+ 3ac:	69 e0       	ldi	r22, 0x09	; 9
+ 3ae:	0e 94 5c 00 	call	0xb8	; 0xb8 <MOTOR_Backward>
+ 3b2:	a0 cf       	rjmp	.-192    	; 0x2f4 <main+0x6c>
+				}
+				else
+				{
+					MOTOR_Backward(acx ,acx - acy + 9);
+ 3b4:	68 2f       	mov	r22, r24
+ 3b6:	67 5f       	subi	r22, 0xF7	; 247
+ 3b8:	62 1b       	sub	r22, r18
+ 3ba:	0e 94 5c 00 	call	0xb8	; 0xb8 <MOTOR_Backward>
+ 3be:	9a cf       	rjmp	.-204    	; 0x2f4 <main+0x6c>
+				}
+			}
+			else
+			{
+				acy = acy >> 7;
+ 3c0:	22 0f       	add	r18, r18
+ 3c2:	23 2f       	mov	r18, r19
+ 3c4:	22 1f       	adc	r18, r18
+ 3c6:	33 0b       	sbc	r19, r19
+ 3c8:	31 95       	neg	r19
+				if (acx <= acy)
+ 3ca:	28 17       	cp	r18, r24
+ 3cc:	39 07       	cpc	r19, r25
+ 3ce:	30 f0       	brcs	.+12     	; 0x3dc <main+0x154>
+				{
+					MOTOR_Backward(0,acx + 9);
+ 3d0:	68 2f       	mov	r22, r24
+ 3d2:	67 5f       	subi	r22, 0xF7	; 247
+ 3d4:	80 e0       	ldi	r24, 0x00	; 0
+ 3d6:	0e 94 5c 00 	call	0xb8	; 0xb8 <MOTOR_Backward>
+ 3da:	8c cf       	rjmp	.-232    	; 0x2f4 <main+0x6c>
+				}
+				else
+				{
+					MOTOR_Backward(acx - acy,acx + 9);
+ 3dc:	68 2f       	mov	r22, r24
+ 3de:	67 5f       	subi	r22, 0xF7	; 247
+ 3e0:	82 1b       	sub	r24, r18
+ 3e2:	0e 94 5c 00 	call	0xb8	; 0xb8 <MOTOR_Backward>
+ 3e6:	86 cf       	rjmp	.-244    	; 0x2f4 <main+0x6c>
+
+000003e8 <_exit>:
+ 3e8:	f8 94       	cli
+
+000003ea <__stop_program>:
+ 3ea:	ff cf       	rjmp	.-2      	; 0x3ea <__stop_program>
