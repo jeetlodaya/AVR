@@ -1,0 +1,251 @@
+
+oled lcd.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000e  00800100  000001f2  00000286  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000001f2  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000408  0080010e  0080010e  00000294  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000294  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000002c4  2**2
+                  CONTENTS, READONLY
+  5 .debug_info   000005f4  00000000  00000000  00000300  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000005a2  00000000  00000000  000008f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000133  00000000  00000000  00000e96  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000208  00000000  00000000  00000fc9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 45 00 	jmp	0x8a	; 0x8a <__ctors_end>
+   4:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+   8:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+   c:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  10:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  14:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  18:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  1c:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  20:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  24:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  28:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  2c:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  30:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  34:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  38:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  3c:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  40:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  44:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  48:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  4c:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  50:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  54:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  58:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  5c:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  60:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+  64:	0c 94 62 00 	jmp	0xc4	; 0xc4 <__bad_interrupt>
+
+00000068 <__trampolines_end>:
+  68:	00 10       	cpse	r0, r0
+  6a:	20 00       	.word	0x0020	; ????
+  6c:	21 00       	.word	0x0021	; ????
+  6e:	ff 22       	and	r15, r31
+  70:	00 ff       	sbrs	r16, 0
+  72:	b0 00       	.word	0x00b0	; ????
+  74:	a1 a8       	ldd	r10, Z+49	; 0x31
+  76:	ff c8       	rjmp	.-3586   	; 0xfffff276 <__eeprom_end+0xff7ef276>
+  78:	d3 00       	.word	0x00d3	; ????
+  7a:	da 12       	cpse	r13, r26
+  7c:	d5 f0       	brhs	.+52     	; 0xb2 <__do_clear_bss+0x6>
+  7e:	d9 22       	and	r13, r25
+  80:	db 20       	and	r13, r11
+  82:	81 ff       	sbrs	r24, 1
+  84:	a4 a6       	std	Z+44, r10	; 0x2c
+  86:	8d 14       	cp	r8, r13
+  88:	2e af       	std	Y+62, r18	; 0x3e
+
+0000008a <__ctors_end>:
+  8a:	11 24       	eor	r1, r1
+  8c:	1f be       	out	0x3f, r1	; 63
+  8e:	cf ef       	ldi	r28, 0xFF	; 255
+  90:	d8 e0       	ldi	r29, 0x08	; 8
+  92:	de bf       	out	0x3e, r29	; 62
+  94:	cd bf       	out	0x3d, r28	; 61
+
+00000096 <__do_copy_data>:
+  96:	11 e0       	ldi	r17, 0x01	; 1
+  98:	a0 e0       	ldi	r26, 0x00	; 0
+  9a:	b1 e0       	ldi	r27, 0x01	; 1
+  9c:	e2 ef       	ldi	r30, 0xF2	; 242
+  9e:	f1 e0       	ldi	r31, 0x01	; 1
+  a0:	02 c0       	rjmp	.+4      	; 0xa6 <__do_copy_data+0x10>
+  a2:	05 90       	lpm	r0, Z+
+  a4:	0d 92       	st	X+, r0
+  a6:	ae 30       	cpi	r26, 0x0E	; 14
+  a8:	b1 07       	cpc	r27, r17
+  aa:	d9 f7       	brne	.-10     	; 0xa2 <__do_copy_data+0xc>
+
+000000ac <__do_clear_bss>:
+  ac:	25 e0       	ldi	r18, 0x05	; 5
+  ae:	ae e0       	ldi	r26, 0x0E	; 14
+  b0:	b1 e0       	ldi	r27, 0x01	; 1
+  b2:	01 c0       	rjmp	.+2      	; 0xb6 <.do_clear_bss_start>
+
+000000b4 <.do_clear_bss_loop>:
+  b4:	1d 92       	st	X+, r1
+
+000000b6 <.do_clear_bss_start>:
+  b6:	a6 31       	cpi	r26, 0x16	; 22
+  b8:	b2 07       	cpc	r27, r18
+  ba:	e1 f7       	brne	.-8      	; 0xb4 <.do_clear_bss_loop>
+  bc:	0e 94 d5 00 	call	0x1aa	; 0x1aa <main>
+  c0:	0c 94 f7 00 	jmp	0x1ee	; 0x1ee <_exit>
+
+000000c4 <__bad_interrupt>:
+  c4:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000c8 <OLED_ClearScreenBuffer>:
+  c8:	20 e1       	ldi	r18, 0x10	; 16
+  ca:	31 e0       	ldi	r19, 0x01	; 1
+  cc:	48 e0       	ldi	r20, 0x08	; 8
+  ce:	80 e0       	ldi	r24, 0x00	; 0
+  d0:	90 e0       	ldi	r25, 0x00	; 0
+  d2:	f9 01       	movw	r30, r18
+  d4:	e8 0f       	add	r30, r24
+  d6:	f9 1f       	adc	r31, r25
+  d8:	10 82       	st	Z, r1
+  da:	01 96       	adiw	r24, 0x01	; 1
+  dc:	80 38       	cpi	r24, 0x80	; 128
+  de:	91 05       	cpc	r25, r1
+  e0:	c1 f7       	brne	.-16     	; 0xd2 <OLED_ClearScreenBuffer+0xa>
+  e2:	41 50       	subi	r20, 0x01	; 1
+  e4:	20 58       	subi	r18, 0x80	; 128
+  e6:	3f 4f       	sbci	r19, 0xFF	; 255
+  e8:	41 11       	cpse	r20, r1
+  ea:	f1 cf       	rjmp	.-30     	; 0xce <OLED_ClearScreenBuffer+0x6>
+  ec:	08 95       	ret
+
+000000ee <uart_putchar>:
+  ee:	cf 93       	push	r28
+  f0:	c8 2f       	mov	r28, r24
+  f2:	8a 30       	cpi	r24, 0x0A	; 10
+  f4:	19 f4       	brne	.+6      	; 0xfc <uart_putchar+0xe>
+  f6:	8d e0       	ldi	r24, 0x0D	; 13
+  f8:	0e 94 77 00 	call	0xee	; 0xee <uart_putchar>
+  fc:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <__DATA_REGION_ORIGIN__+0x60>
+ 100:	85 ff       	sbrs	r24, 5
+ 102:	fc cf       	rjmp	.-8      	; 0xfc <uart_putchar+0xe>
+ 104:	c0 93 c6 00 	sts	0x00C6, r28	; 0x8000c6 <__DATA_REGION_ORIGIN__+0x66>
+ 108:	80 e0       	ldi	r24, 0x00	; 0
+ 10a:	90 e0       	ldi	r25, 0x00	; 0
+ 10c:	cf 91       	pop	r28
+ 10e:	08 95       	ret
+
+00000110 <I2C_Start>:
+ 110:	84 ea       	ldi	r24, 0xA4	; 164
+ 112:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
+ 116:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
+ 11a:	87 ff       	sbrs	r24, 7
+ 11c:	fc cf       	rjmp	.-8      	; 0x116 <I2C_Start+0x6>
+ 11e:	08 95       	ret
+
+00000120 <I2C_Write>:
+ 120:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <__DATA_REGION_ORIGIN__+0x5b>
+ 124:	84 e8       	ldi	r24, 0x84	; 132
+ 126:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
+ 12a:	80 91 bc 00 	lds	r24, 0x00BC	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
+ 12e:	87 ff       	sbrs	r24, 7
+ 130:	fc cf       	rjmp	.-8      	; 0x12a <I2C_Write+0xa>
+ 132:	08 95       	ret
+
+00000134 <OLED_SendCommand>:
+ 134:	0e 94 88 00 	call	0x110	; 0x110 <I2C_Start>
+ 138:	88 e7       	ldi	r24, 0x78	; 120
+ 13a:	0e 94 90 00 	call	0x120	; 0x120 <I2C_Write>
+ 13e:	80 e0       	ldi	r24, 0x00	; 0
+ 140:	0c 94 90 00 	jmp	0x120	; 0x120 <I2C_Write>
+
+00000144 <OLED_SendData>:
+ 144:	0e 94 88 00 	call	0x110	; 0x110 <I2C_Start>
+ 148:	88 e7       	ldi	r24, 0x78	; 120
+ 14a:	0e 94 90 00 	call	0x120	; 0x120 <I2C_Write>
+ 14e:	80 e4       	ldi	r24, 0x40	; 64
+ 150:	0c 94 90 00 	jmp	0x120	; 0x120 <I2C_Write>
+
+00000154 <OLED_WriteFlashArray>:
+ 154:	0f 93       	push	r16
+ 156:	1f 93       	push	r17
+ 158:	cf 93       	push	r28
+ 15a:	df 93       	push	r29
+ 15c:	eb 01       	movw	r28, r22
+ 15e:	8c 01       	movw	r16, r24
+ 160:	f8 01       	movw	r30, r16
+ 162:	84 91       	lpm	r24, Z
+ 164:	0e 94 90 00 	call	0x120	; 0x120 <I2C_Write>
+ 168:	21 97       	sbiw	r28, 0x01	; 1
+ 16a:	0f 5f       	subi	r16, 0xFF	; 255
+ 16c:	1f 4f       	sbci	r17, 0xFF	; 255
+ 16e:	20 97       	sbiw	r28, 0x00	; 0
+ 170:	b9 f7       	brne	.-18     	; 0x160 <OLED_WriteFlashArray+0xc>
+ 172:	df 91       	pop	r29
+ 174:	cf 91       	pop	r28
+ 176:	1f 91       	pop	r17
+ 178:	0f 91       	pop	r16
+ 17a:	08 95       	ret
+
+0000017c <OLED_ClearScreen>:
+ 17c:	cf 93       	push	r28
+ 17e:	df 93       	push	r29
+ 180:	0e 94 a2 00 	call	0x144	; 0x144 <OLED_SendData>
+ 184:	c0 e0       	ldi	r28, 0x00	; 0
+ 186:	d4 e0       	ldi	r29, 0x04	; 4
+ 188:	80 e0       	ldi	r24, 0x00	; 0
+ 18a:	0e 94 90 00 	call	0x120	; 0x120 <I2C_Write>
+ 18e:	21 97       	sbiw	r28, 0x01	; 1
+ 190:	d9 f7       	brne	.-10     	; 0x188 <OLED_ClearScreen+0xc>
+ 192:	84 e9       	ldi	r24, 0x94	; 148
+ 194:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
+ 198:	0e 94 64 00 	call	0xc8	; 0xc8 <OLED_ClearScreenBuffer>
+ 19c:	10 92 0f 01 	sts	0x010F, r1	; 0x80010f <__data_end+0x1>
+ 1a0:	10 92 0e 01 	sts	0x010E, r1	; 0x80010e <__data_end>
+ 1a4:	df 91       	pop	r29
+ 1a6:	cf 91       	pop	r28
+ 1a8:	08 95       	ret
+
+000001aa <main>:
+ 1aa:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__DATA_REGION_ORIGIN__+0x65>
+ 1ae:	80 e1       	ldi	r24, 0x10	; 16
+ 1b0:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__DATA_REGION_ORIGIN__+0x64>
+ 1b4:	88 e1       	ldi	r24, 0x18	; 24
+ 1b6:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__DATA_REGION_ORIGIN__+0x61>
+ 1ba:	8e e2       	ldi	r24, 0x2E	; 46
+ 1bc:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__DATA_REGION_ORIGIN__+0x62>
+ 1c0:	80 e0       	ldi	r24, 0x00	; 0
+ 1c2:	91 e0       	ldi	r25, 0x01	; 1
+ 1c4:	90 93 13 05 	sts	0x0513, r25	; 0x800513 <__iob+0x3>
+ 1c8:	80 93 12 05 	sts	0x0512, r24	; 0x800512 <__iob+0x2>
+ 1cc:	8c e0       	ldi	r24, 0x0C	; 12
+ 1ce:	80 93 b8 00 	sts	0x00B8, r24	; 0x8000b8 <__DATA_REGION_ORIGIN__+0x58>
+ 1d2:	0e 94 9a 00 	call	0x134	; 0x134 <OLED_SendCommand>
+ 1d6:	62 e2       	ldi	r22, 0x22	; 34
+ 1d8:	70 e0       	ldi	r23, 0x00	; 0
+ 1da:	88 e6       	ldi	r24, 0x68	; 104
+ 1dc:	90 e0       	ldi	r25, 0x00	; 0
+ 1de:	0e 94 aa 00 	call	0x154	; 0x154 <OLED_WriteFlashArray>
+ 1e2:	84 e9       	ldi	r24, 0x94	; 148
+ 1e4:	80 93 bc 00 	sts	0x00BC, r24	; 0x8000bc <__DATA_REGION_ORIGIN__+0x5c>
+ 1e8:	0e 94 be 00 	call	0x17c	; 0x17c <OLED_ClearScreen>
+ 1ec:	ff cf       	rjmp	.-2      	; 0x1ec <main+0x42>
+
+000001ee <_exit>:
+ 1ee:	f8 94       	cli
+
+000001f0 <__stop_program>:
+ 1f0:	ff cf       	rjmp	.-2      	; 0x1f0 <__stop_program>
